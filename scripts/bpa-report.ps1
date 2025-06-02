@@ -18,9 +18,9 @@ if ($src) {
     {
         New-Item -ItemType Directory -Path $destinationPath -ErrorAction SilentlyContinue | Out-Null            
 
-        Write-Host "Downloading binaries"
+        Write-Host "Downloading PBI Inspector V2.3 binaries"
     
-        $downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/latest/download/win-x64-CLI.zip"
+        $downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/download/v2.3.0/win-x64-CLI.zip"
     
         $zipFile = "$destinationPath\PBIInspector.zip"
     
