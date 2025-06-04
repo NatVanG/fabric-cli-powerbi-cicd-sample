@@ -18,10 +18,14 @@ if ($src) {
     {
         New-Item -ItemType Directory -Path $destinationPath -ErrorAction SilentlyContinue | Out-Null            
 
-        Write-Host "Downloading PBI Inspector V2.3.1 binaries"
+        Write-Host "Downloading latest PBI Inspector binaries"
     
-        $downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/download/v2.3.1/win-x64-CLI.zip"
+        $downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/latest/download/win-x64-CLI.zip"
+
+        #Write-Host "Downloading PBI Inspector V2.3.1 binaries"
     
+        #$downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/download/v2.3.1/win-x64-CLI.zip"
+        
         $zipFile = "$destinationPath\PBIInspector.zip"
     
         Invoke-WebRequest -Uri $downloadUrl -OutFile $zipFile
