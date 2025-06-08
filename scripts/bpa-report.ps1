@@ -22,7 +22,7 @@ if ($src) {
     
         #$downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/latest/download/win-x64-CLI.zip"
 
-        Write-Host "Downloading PBI Inspector V2.3.3 binaries"
+        Write-Host "Downloading latest PBI Inspector binaries"
     
         $downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/latest/download/win-x64-CLI.zip"
         
