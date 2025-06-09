@@ -61,7 +61,7 @@ if ($src) {
 
         Write-Host "Running BPA rules for: '$itemPath'"
 
-        $process = Start-Process -FilePath "$destinationPath\win-x64\CLI\PBIRInspectorCLI.exe" -ArgumentList "-pbipreport ""$itemPath"" -rules ""$rulesPath"" -formats ""GitHub""" -NoNewWindow -Wait -PassThru    
+        $process = Start-Process -FilePath "$destinationPath\win-x64\CLI\PBIRInspectorCLI.exe" -ArgumentList "-fabricitem ""$itemPath"" -rules ""$rulesPath"" -formats ""GitHub""" -NoNewWindow -Wait -PassThru    
 
         if ($process.ExitCode -ne 0) {
             throw "Error running BPA rules for: '$itemPath'"
