@@ -18,13 +18,13 @@ if ($src) {
     {
         New-Item -ItemType Directory -Path $destinationPath -ErrorAction SilentlyContinue | Out-Null            
 
-        #Write-Host "Downloading latest PBI Inspector binaries"
+        Write-Host "Downloading latest PBI Inspector binaries"
     
-        #$downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/latest/download/win-x64-CLI.zip"
+        $downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/latest/download/win-x64-CLI.zip"
 
-        Write-Host "Downloading PBI Inspector v2.3.4 binaries"
+        #Write-Host "Downloading PBI Inspector v2.3.4 binaries"
     
-        $downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/download/v2.3.4/win-x64-CLI.zip"
+        #$downloadUrl = "https://github.com/NatVanG/PBI-InspectorV2/releases/download/v2.3.4/win-x64-CLI.zip"
         
         $zipFile = "$destinationPath\PBIInspector.zip"
     
@@ -48,17 +48,18 @@ if ($src) {
 
     # Run BPA rules
 
-    $itemsFolders = Get-ChildItem  -Path $src -recurse -include ("*.pbir")
+    #$itemsFolders = Get-ChildItem  -Path $src -recurse -include ("*.platform")
 
-    foreach ($itemFolder in $itemsFolders) {	
-        $itemPath = "$($itemFolder.Directory.FullName)\definition"
+    #foreach ($itemFolder in $itemsFolders) {	
+    #    $itemPath = "$($itemFolder.Directory.FullName)"
+    #
+    #    if (!(Test-Path $itemPath)) {
+    #          if (!(Test-Path $itemPath)) {
+    #            throw "Cannot find .platform file. If you are using PBIR-Legacy (report.json), please convert it to PBIR using Power BI Desktop."
+    #        }
+    #    }
 
-        if (!(Test-Path $itemPath)) {
-              if (!(Test-Path $itemPath)) {
-                throw "Cannot find report PBIR definition. If you are using PBIR-Legacy (report.json), please convert it to PBIR using Power BI Desktop."
-            }
-        }
-
+        $itemPath = "$($itemFolder.Directory.FullName)"
         Write-Host "Running BPA rules for: '$itemPath'"
 
         $process = Start-Process -FilePath "$destinationPath\win-x64\CLI\PBIRInspectorCLI.exe" -ArgumentList "-fabricitem ""$itemPath"" -rules ""$rulesPath"" -formats ""GitHub""" -NoNewWindow -Wait -PassThru    
