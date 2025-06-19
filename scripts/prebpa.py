@@ -47,7 +47,7 @@ if tenant_settings == None or tenant_settings == "" or tenant_settings == "None"
     raise Exception(f"Cannot resolve tenant settings")
 
 # save tenant settings
-print("tenant_settings length: " + len(tenant_settings))
+print("tenant_settings length: " + str(len(tenant_settings)))
 
 # Define the directory and file path
 directory = "targetenvironment"
