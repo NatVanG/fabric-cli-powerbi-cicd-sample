@@ -67,7 +67,7 @@ def run_fab_command(
         )
 
     if capture_output:
-
+        print("fabcommand output: " + result[:250])
         output = result.stdout.strip().split("\n")[-1]
 
         return output
