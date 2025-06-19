@@ -1,4 +1,4 @@
-name: deploy
+name: prebpa
   
 on:
 
@@ -6,7 +6,7 @@ on:
 
   push:
     branches:
-      - main           
+      - fabinspector           
     paths:
       - '**/src/**'           
     
