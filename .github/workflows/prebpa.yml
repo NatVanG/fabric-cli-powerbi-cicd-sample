@@ -46,7 +46,7 @@ env:
 
 jobs:
 
-  deploy:    
+  prebpa:    
     runs-on: ubuntu-latest
 
     steps:
