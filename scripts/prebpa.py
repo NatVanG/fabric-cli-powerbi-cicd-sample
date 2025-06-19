@@ -57,8 +57,7 @@ os.makedirs(directory, exist_ok=True)
 
 # Write the string to the file
 with open(file_path, "w") as file:
-    file.write(tenant_settings)
-
+    file.write(tenant_settings)
 
 # Log out in case of auth with SPN
 
