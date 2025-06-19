@@ -27,7 +27,7 @@ if spn_auth:
     fab_authenticate_spn()
 
 # Get tenant_settings
-tenant_settings = None
+tenant_settings = ""
 
 for attempt in range(3):
 
