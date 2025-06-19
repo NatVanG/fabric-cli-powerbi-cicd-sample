@@ -47,6 +47,7 @@ if tenant_settings == None or tenant_settings == "" or tenant_settings == "None"
     raise Exception(f"Cannot resolve tenant settings")
 
 # save tenant settings
+print("tenant_settings length: " + len(tenant_settings))
 
 # Define the directory and file path
 directory = "targetenvironment"
@@ -55,10 +56,13 @@ file_path = os.path.join(directory, "tenant-settings.json")
 # Create the directory if it doesn't exist
 os.makedirs(directory, exist_ok=True)
 
+print("file path:" + file_path)
+
 # Write the string to the file
 with open(file_path, "w") as file:
     file.write(tenant_settings)
 
+print("Write completed.")
 # Log out in case of auth with SPN
 
 if spn_auth:
