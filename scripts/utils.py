@@ -70,7 +70,7 @@ def run_fab_command(
         temp = result.stdout.strip()
         print("fabcommand output: " + temp[:250])
         output = result.stdout.strip().split("\n")[-1]
-
+        print("fabcommand output 2: " + output[:250])
         return output
 
 
