@@ -56,7 +56,7 @@ def main():
         current_path = os.getcwd()
         print("Current working directory:", current_path)
 
-        args = ["-fabricitem", "src","-rules", "rules\\Example-tenantSettings-rules.json","-formats", "GitHub"]
+        args = ["-fabricitem","src","-rules", "rules\\Example-tenantSettings-rules.json","-formats", "GitHub"]
 
         run_executable(exe_path, args)
 
