@@ -41,11 +41,7 @@ jobs:
         run: 
           python scripts/pre-bpa.py --spn-auth --capacity $capacity --workspace $workspace --admin-upns $admin_upns
           
-      - name: Run BPA Script        
-        env:
-          FABRIC_CLIENT_ID: ${{ secrets.FABRIC_CLIENT_ID }}
-          FABRIC_CLIENT_SECRET: ${{ secrets.FABRIC_CLIENT_SECRET }}
-          FABRIC_TENANT_ID: ${{ secrets.FABRIC_TENANT_ID }}          
+      - name: Run BPA Script         
         run: 
-          python scripts/new-bpa.py --spn-auth --capacity $capacity --workspace $workspace --admin-upns $admin_upns
+          python scripts/new-bpa.py
       
