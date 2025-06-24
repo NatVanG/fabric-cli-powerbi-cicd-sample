@@ -66,6 +66,8 @@ def main():
         extract_zip(zip_path, extract_path)
 
         exe_path = find_executable(extract_path)
-        run_executable(exe_path, ["--help"])  # Replace with your actual arguments
+        print("Local executable path:")
+        print(exe_path)
+        #run_executable(exe_path, ["--help"])  # Replace with your actual arguments
 
 main()
