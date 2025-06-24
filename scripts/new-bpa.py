@@ -58,7 +58,12 @@ def main():
 
         current_path = os.getcwd()
         print("Current working directory:", current_path)
-        
+
+        for root, dirs, files in os.walk(current_path):
+            print(f"📁 Directory: {root}")
+            for file in files:
+                print(f"  📄 File: {file}")
+                
         args = ["-fabricitem","src","-rules", "/rules/Example-tenantSettings-rules.json","-formats", "GitHub"]
         
         #run_executable(exe_path, args)
