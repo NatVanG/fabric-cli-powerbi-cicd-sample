@@ -70,8 +70,9 @@ def main():
         print("rulePath:", rulePath)
         print("srcPath:", srcPath)
 
-        args = ["-fabricitem","src","-rules", os.path.join(current_path, "/rules/Example-tenantSettings-rules.json"),"-formats", "GitHub"]
+        args = ["-fabricitem",srcPath,"-rules", rulePath,"-formats", "GitHub"]
         
+        print("Arguments to be passed to the executable:", args)
         run_executable(exe_path, args)
 
 main()
