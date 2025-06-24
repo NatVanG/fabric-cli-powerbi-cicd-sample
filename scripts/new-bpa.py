@@ -1,4 +1,5 @@
 import os
+from xmlrpc.server import SimpleXMLRPCDispatcher
 import requests
 import zipfile
 import subprocess
@@ -59,13 +60,18 @@ def main():
         current_path = os.getcwd()
         print("Current working directory:", current_path)
 
-        for root, dirs, files in os.walk(current_path):
-            print(f"📁 Directory: {root}")
-            for file in files:
-                print(f"  📄 File: {file}")
-                
-        args = ["-fabricitem","src","-rules", "/rules/Example-tenantSettings-rules.json","-formats", "GitHub"]
+        #for root, dirs, files in os.walk(current_path):
+        #    print(f"📁 Directory: {root}")
+        #    for file in files:
+        #        print(f"  📄 File: {file}")
         
-        #run_executable(exe_path, args)
+        rulePath = os.path.join(current_path, os.path.join("rules", "Example-tenantSettings-rules.json"))
+        srcPath = os.path.join(current_path, "src")
+        print("rulePath:", rulePath)
+        print("srcPath:", srcPath)
+
+        args = ["-fabricitem","src","-rules", os.path.join(current_path, "/rules/Example-tenantSettings-rules.json"),"-formats", "GitHub"]
+        
+        run_executable(exe_path, args)
 
 main()
