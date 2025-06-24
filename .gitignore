@@ -10,3 +10,4 @@ local-*.py
 /scripts/__pycache__
 
 _local/**
+/.vs
