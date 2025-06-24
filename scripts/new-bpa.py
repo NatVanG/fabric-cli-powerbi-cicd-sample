@@ -7,6 +7,7 @@ import shutil
 import time
 import argparse
 import glob
+import stat
 from utils import *
 
 def download_zip(url, dest_path):
@@ -53,6 +54,8 @@ def main():
         print("Local executable path:")
         print(exe_path)
         
+        os.chmod(exe_path, os.stat(exe_path).st_mode | stat.S_IEXEC)
+
         current_path = os.getcwd()
         print("Current working directory:", current_path)
         
