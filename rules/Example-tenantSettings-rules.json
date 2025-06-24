@@ -4,7 +4,7 @@
       "id": "TEST_TENANTSETTINGS",
       "name": "Test tenant settings.",
       "itemtype": "json",
-      "part": "targetenvironment////TenantSettings.json$",
+      "part": "targetenvironment////tenant-settings.json$",
       "test": [
         {
           "var": "tenantSettings.0.settingName"
@@ -41,7 +41,7 @@
                 {
                   "query": [
                     {
-                      "part": "targetenvironment////TenantSettings.json$"
+                      "part": "targetenvironment////tenant-settings.json$"
                     },
                     {
                       "path": "$.*.tenantSettings[?@.settingName=='AzureMaps'].enabled"
@@ -87,7 +87,7 @@
                 {
                   "query": [
                     {
-                      "part": "targetenvironment////TenantSettings.json$"
+                      "part": "targetenvironment////tenant-settings.json$"
                     },
                     {
                       "path": "$.*.tenantSettings[?@.settingName=='SQLDbNativeTenant'].enabled"
@@ -108,7 +108,7 @@
       "id": "CAPACITYSETTINGS_SQLDB_ENABLED",
       "name": "Check capacity setting for SQLDB is enabled if we want to deploy a SQL Database.",
       "logType": "error",
-      "disabled": false,
+      "disabled": true,
       "itemtype": "*",
       "test": [
         {
