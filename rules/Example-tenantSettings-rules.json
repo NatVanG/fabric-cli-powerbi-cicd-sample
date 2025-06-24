@@ -4,6 +4,7 @@
       "id": "TEST_TENANTSETTINGS",
       "name": "Test tenant settings.",
       "itemtype": "json",
+      "part": "targetenvironment////TenantSettings.json$",
       "test": [
         {
           "var": "tenantSettings.0.settingName"
@@ -40,7 +41,7 @@
                 {
                   "query": [
                     {
-                      "part": "TenantSettings.json$"
+                      "part": "targetenvironment////TenantSettings.json$"
                     },
                     {
                       "path": "$.*.tenantSettings[?@.settingName=='AzureMaps'].enabled"
@@ -86,7 +87,7 @@
                 {
                   "query": [
                     {
-                      "part": "TenantSettings.json$"
+                      "part": "targetenvironment////TenantSettings.json$"
                     },
                     {
                       "path": "$.*.tenantSettings[?@.settingName=='SQLDbNativeTenant'].enabled"
