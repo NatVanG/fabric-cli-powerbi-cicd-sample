@@ -6,7 +6,6 @@ from utils import *
 
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("--spn-auth", action="store_true", default=True)
-parser.add_argument("--workspace", default="SalesSense")
 parser.add_argument("--admin-upns", default=os.getenv("FABRIC_ADMIN_UPNS"))
 parser.add_argument(
     "--capacity", default=os.getenv("FABRIC_CAPACITY")
@@ -16,7 +15,6 @@ args = parser.parse_args()
 
 spn_auth = args.spn_auth
 capacity_name = args.capacity
-workspace_name = args.workspace
 admin_upns = args.admin_upns
 
 if admin_upns:
