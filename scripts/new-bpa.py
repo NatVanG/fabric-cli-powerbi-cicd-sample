@@ -1,6 +1,4 @@
 import os
-from winreg import REG_FULL_RESOURCE_DESCRIPTOR
-from xmlrpc.server import SimpleXMLRPCDispatcher
 import requests
 import zipfile
 import subprocess
