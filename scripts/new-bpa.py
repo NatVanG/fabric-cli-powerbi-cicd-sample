@@ -1,4 +1,5 @@
 import os
+from winreg import REG_FULL_RESOURCE_DESCRIPTOR
 from xmlrpc.server import SimpleXMLRPCDispatcher
 import requests
 import zipfile
@@ -58,21 +59,25 @@ def main():
         os.chmod(exe_path, os.stat(exe_path).st_mode | stat.S_IEXEC)
 
         current_path = os.getcwd()
+        
         print("Current working directory:", current_path)
+        srcPath = os.path.join(current_path, "src")
+        rulesDirPath = os.path.join(current_path, "rules")
 
+        
         #for root, dirs, files in os.walk(current_path):
         #    print(f"📁 Directory: {root}")
         #    for file in files:
         #        print(f"  📄 File: {file}")
         
-        rulePath = os.path.join(current_path, os.path.join("rules", "Example-tenantSettings-rules.json"))
-        srcPath = os.path.join(current_path, "src")
-        print("rulePath:", rulePath)
-        print("srcPath:", srcPath)
+        # Loop through each JSON file in the rules directory
+        json_files = glob.glob(os.path.join(rulesDirPath, "*.json"))
+        print("Found JSON rule files:", json_files)
 
-        args = ["-fabricitem",srcPath,"-rules", rulePath,"-formats", "GitHub"]
-        
-        print("Arguments to be passed to the executable:", args)
-        run_executable(exe_path, args)
+        for rulePath in json_files:
+            print("Processing rulePath:", rulePath)
+            args = ["-fabricitem", srcPath, "-rules", rulePath, "-formats", "GitHub"]
+            print("Arguments to be passed to the executable:", args)
+            run_executable(exe_path, args)
 
 main()
