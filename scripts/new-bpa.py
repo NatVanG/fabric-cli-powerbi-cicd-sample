@@ -28,9 +28,9 @@ def extract_zip(zip_path, extract_to):
 def find_executable(directory):
     for root, _, files in os.walk(directory):
         for file in files:
-            if file.endswith(".exe"):
+            if file.find("PBIRInspectorCLI") > -1:
                 return os.path.join(root, file)
-    raise FileNotFoundError("No .exe file found in the extracted zip.")
+    raise FileNotFoundError("No PBIRInspectorCLI file found in the extracted zip.")
 
 def run_executable(exe_path, args):
     print(f"Running: {exe_path} {' '.join(args)}")
@@ -41,7 +41,7 @@ def run_executable(exe_path, args):
         print(result.stderr)
 
 def main():
-    zip_url = "https://github.com/NatVanG/PBI-InspectorV2/releases/download/v2.4.0/win-x64-CLI.zip"
+    zip_url = "https://github.com/NatVanG/PBI-InspectorV2/releases/download/v2.4.0-linux/linux-x64-CLI.zip"
     
     with tempfile.TemporaryDirectory() as temp_dir:
         zip_path = os.path.join(temp_dir, "app.zip")
