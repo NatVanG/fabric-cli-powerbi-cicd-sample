@@ -1,6 +1,6 @@
 name: new-pba
   
-on:
+on: 
 
   # Deploys to DEV on push to main branch
 
@@ -8,8 +8,19 @@ on:
     branches:
       - fabinspector           
     paths:
-      - '**/src/**'           
-    
+      - '**/src/**' 
+      
+  workflow_dispatch:
+      inputs:
+          logLevel:
+            description: 'Log level'
+            required: false
+            default: 'warning'
+            type: choice
+            options:
+            - info
+            - warning
+            - debug
   
 env:        
   capacity: ${{ github.event.inputs.capacity == '' && vars.FABRIC_CAPACITY || github.event.inputs.capacity }}
