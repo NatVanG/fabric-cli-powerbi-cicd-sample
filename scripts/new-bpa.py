@@ -57,11 +57,11 @@ def main():
         print("Current working directory:", current_path)
 
         args = [
-            "-fabricitem", "src",
-            "-rules", "rules\\Example-tenantSettings-rules.json",
-            "-formats", "GitHub"
-        ]
+            "-fabricitem", "src",
+            "-rules", "rules\\Example-tenantSettings-rules.json",
+            "-formats", "GitHub"
+        ]
 
-        run_executable(exe_path, args)
+        run_executable(exe_path, args)
 
 main()
