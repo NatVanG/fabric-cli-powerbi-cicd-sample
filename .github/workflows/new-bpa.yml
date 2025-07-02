@@ -52,7 +52,11 @@ jobs:
         run: 
           python scripts/pre-bpa.py --spn-auth --capacity $capacity --admin-upns $admin_upns
           
-      - name: Run BPA Script         
-        run: 
-          python scripts/new-bpa.py
-      
+      - name: Run BPA Docker Image
+        run: |
+              docker pull ghcr.io/natvang/fab-inspector:latest
+              docker run --rm \
+                -v "${{ github.workspace }}/src:/src" \
+                -v "${{ github.workspace }}/rules:/rules" \
+                ghcr.io/natvang/fab-inspector:latest \
+                -fabricitem /src -rules /rules -formats GitHub
