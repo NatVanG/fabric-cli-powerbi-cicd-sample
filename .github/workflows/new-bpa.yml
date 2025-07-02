@@ -52,7 +52,7 @@ jobs:
         run: 
           python scripts/pre-bpa.py --spn-auth --capacity $capacity --admin-upns $admin_upns
           
-      - name: Run BPA Docker Image
+      - name: Run tenant settings rules
         run: |
           docker pull ghcr.io/natvang/fab-inspector:latest
           docker run --rm \
@@ -60,3 +60,12 @@ jobs:
             -v "${{ github.workspace }}/rules:/rules" \
             ghcr.io/natvang/fab-inspector:latest \
             -fabricitem /src -rules /rules/example-tenantsettings-rules.json -formats GitHub
+
+      - name: Run base rules
+        run: |
+          docker pull ghcr.io/natvang/fab-inspector:latest
+          docker run --rm \
+            -v "${{ github.workspace }}/src:/src" \
+            -v "${{ github.workspace }}/rules:/rules" \
+            ghcr.io/natvang/fab-inspector:latest \
+            -fabricitem /src -rules /rules/Base-rules.json -formats GitHub
