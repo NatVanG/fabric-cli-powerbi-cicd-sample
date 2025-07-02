@@ -54,9 +54,9 @@ jobs:
           
       - name: Run BPA Docker Image
         run: |
-              docker pull ghcr.io/natvang/fab-inspector:latest
-              docker run --rm \
-                -v "${{ github.workspace }}/src:/src" \
-                -v "${{ github.workspace }}/rules:/rules" \
-                ghcr.io/natvang/fab-inspector:latest \
-                -fabricitem /src -rules /rules -formats GitHub
+          docker pull ghcr.io/natvang/fab-inspector:latest
+          docker run --rm \
+            -v "${{ github.workspace }}/src:/src" \
+            -v "${{ github.workspace }}/rules:/rules" \
+            ghcr.io/natvang/fab-inspector:latest \
+            -fabricitem /src -rules /rules/example-tenantsettings-rules.json -formats GitHub
